@@ -15,7 +15,9 @@ self.onmessage = function(event) {
 
 self.onfetch = function(event) {
   var url = new URL(event.request.url);
-  console.log(url.pathname);
+  console.log(url);
+  console.log(event);
+
 
   if (url.host === 'nooooope') {
     event.respondWith(
@@ -35,8 +37,5 @@ self.onfetch = function(event) {
         })
     );
   }
-  else
-  {
-    console.log(event,url);
-  }
+
 };
