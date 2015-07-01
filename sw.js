@@ -1,15 +1,15 @@
 self.oninstall = function() {
-  self.skipWaiting();
+ // self.skipWaiting();
 };
 
 self.onactivate = function() {
-  clients.claim();
+ // clients.claim();
 };
 
 self.onmessage = function(event) {
-  if (event.data == 'claim') {
-    clients.claim();
-  }
+  //if (event.data == 'claim') {
+  //  clients.claim();
+  //}
 };
 
 
