@@ -28,7 +28,7 @@ self.onfetch = function(event) {
       })
     );
   }
-  else if (url.pathname === '/404.json') {
+  else if (url.pathname === '/sw_cors_fetch_test/404.json') {
     event.respondWith(
         new Response('{"This came from": "The ServiceWorker fetching our host"}', {
           headers: {
