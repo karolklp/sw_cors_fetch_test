@@ -16,15 +16,7 @@ self.onmessage = function(event) {
 self.onfetch = function(event) {
   var url = new URL(event.request.url);
   console.log(url.pathname);
-  if (url.host === 'karolklp.github.io') {
-    event.respondWith(
-        new Response('{"This came from": "The ServiceWorker fetching our host"}', {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-    );
-  }
+
   if (url.host === 'nooooope') {
     event.respondWith(
       new Response('{"This came from": "The ServiceWorker fetching other hosts"}', {
@@ -32,6 +24,15 @@ self.onfetch = function(event) {
           "Content-Type": "application/json"
         }
       })
+    );
+  }
+  else {
+    event.respondWith(
+        new Response('{"This came from": "The ServiceWorker fetching our host"}', {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
     );
   }
 
