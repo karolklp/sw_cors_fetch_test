@@ -29,13 +29,13 @@
     };
 
     if (navigator.serviceWorker.controller) {
-      log("Page already claimed");
+      log("OK, click the buttons");
     }
     else {
       navigator.serviceWorker.register('sw.js', {
         scope: './'
       }).then(function(sw) {
-        log("Registered… attempting to claim the page");
+        log("Registered… please reload");
       }).catch(function(err) {
         log("Error", err);
       });
