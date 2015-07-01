@@ -16,7 +16,7 @@ self.onmessage = function(event) {
 self.onfetch = function(event) {
   var url = new URL(event.request.url);
   console.log(url.pathname);
-  if (url.pathname === '/404.json') {
+  if (url.host === 'karolklp.github.io') {
     event.respondWith(
         new Response('{"This came from": "The ServiceWorker fetching our host"}', {
           headers: {
