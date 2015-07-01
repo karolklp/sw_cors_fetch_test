@@ -9,7 +9,10 @@
     }
   </style>
 </head>
-<body><button>Perform fetch</button>
+<body>
+<button class="other">Perform fetch from other origin</button>
+<button class="my">Perform fetch from my origin</button>
+
 <script>
     function log() {
       document.body.appendChild(document.createTextNode(Array.prototype.join.call(arguments, ", ") + '\n'));
@@ -45,7 +48,7 @@
     }
 
 
-    document.querySelector('button').onclick = function(event) {
+    document.querySelector('button.my').onclick = function(event) {
       event.preventDefault();
 
 
@@ -57,15 +60,24 @@
         log("Fetch failed - looks like the ServiceWorker isn't in control");
       })      
 
-      
-      fetch("//nooooope/404.json").then(function(r) {
-        return r.json();
-      }).then(function(data) {
-        log("From the ServiceWorker:", JSON.stringify(data));
-      }).catch(function() {
-        log("Fetch failed - looks like the ServiceWorker isn't in control");
-      })
     }
+
+    document.querySelector('button.other').onclick = function(event) {
+        event.preventDefault();
+
+
+        fetch("//nooooope/404.json").then(function(r) {
+            return r.json();
+        }).then(function(data) {
+            log("From the ServiceWorker:", JSON.stringify(data));
+        }).catch(function() {
+            log("Fetch failed - looks like the ServiceWorker isn't in control");
+        })
+
+    }
+
+
+
   </script></body>
 </html>
 

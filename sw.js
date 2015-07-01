@@ -24,7 +24,7 @@ self.onfetch = function(event) {
       })
     );
   }
-    if (url.pathname === '/404.json') {
+    else if (url.pathname === '/404.json') {
     event.respondWith(
       new Response('{"This came from": "The ServiceWorker fetching our host"}', {
         headers: {
